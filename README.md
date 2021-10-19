@@ -1,7 +1,7 @@
 # Boris Bikes Challenge
 Building a program to emulate all the docking stations, bikes, and infrastructure required to make their dream a reality.
 
-## For your convenience here is an esy to use template :
+## For your convenience here is an easy to use template :
 `git clone path-to-your-repo`
 `command_to_install_dependencies` (e.g. `bundle`)
 
