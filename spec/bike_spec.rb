@@ -1,4 +1,4 @@
-require './lib/boris_bikes'
+require './lib/bike'
 
 describe Bike do
   it 'expects Bike instance to respond to the method working?' do
