@@ -9,7 +9,7 @@ describe DockingStation do
   end
 
   it "expects docking station to return error message if docking station is full" do
-    20.times { subject.dock Bike.new } 
+    DockingStation::DEFAUlT_CAPACITY.times { subject.dock Bike.new } 
     expect { subject.dock Bike.new }.to raise_error("This docking station is full")
   end
 
