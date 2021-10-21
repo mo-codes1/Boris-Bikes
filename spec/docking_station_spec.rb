@@ -1,22 +1,23 @@
 require './lib/docking_station'
 
 describe DockingStation do
-
-it 'expects a DockingStation instance to respond_to the method release_bike' do
   docking_station = DockingStation.new
-  expect { docking_station.release_bike }.not_to raise_error
-end
+  new_bike = Bike.new
 
-it 'docks a bike' do
-  bike = Bike.new
-  expect(subject.dock(bike)).to eq bike
-end
+  it 'expects docking station to return error message if no bikes available' do
+    expect { subject.release_bike }.to raise_error("There are no bikes available")
+  end
 
-it 'returns docked bikes' do
-  bike = Bike.new
-  subject.dock(bike)
-  expect(subject.bike).to eq bike
-end
+  it { expect(docking_station).to respond_to(:release_bike) }
+  it { expect(new_bike).to respond_to(:working?) }
+  it { expect(new_bike.working?).to eq true }
+
+  it { is_expected.to respond_to(:dock).with(1).argument}
+
+  it "docks a bike" do
+    bike = Bike.new
+    expect(subject.dock(bike)).to eq bike
+  end
 
 end
 
