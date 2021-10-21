@@ -7,10 +7,16 @@ it 'expects a DockingStation instance to respond_to the method release_bike' do
   expect { docking_station.release_bike }.not_to raise_error
 end
 
-=begin it 'expects station_release.bike to return a new instance of the Bike class' do
-  docking_station = DockingStation.new
-  expect DockingStation.release_bike.working?.to eq true
+it 'docks a bike' do
+  bike = Bike.new
+  expect(subject.dock(bike)).to eq bike
 end
-=end
+
+it 'returns docked bikes' do
+  bike = Bike.new
+  subject.dock(bike)
+  expect(subject.bike).to eq bike
+end
 
 end
+
