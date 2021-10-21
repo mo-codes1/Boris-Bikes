@@ -9,7 +9,7 @@ describe DockingStation do
   end
 
   it "expects docking station to return error message if docking station is full" do
-    subject.dock(Bike.new)
+    20.times { subject.dock Bike.new } 
     expect { subject.dock Bike.new }.to raise_error("This docking station is full")
   end
 
@@ -21,8 +21,10 @@ describe DockingStation do
 
   it "docks a bike" do
     bike = Bike.new
-    expect(subject.dock(bike)).to eq bike
+    subject.dock(bike)
+    expect(subject.release_bike).to eq bike
   end
+
 
 end
 
