@@ -19,10 +19,16 @@ describe DockingStation do
 
   it { is_expected.to respond_to(:dock).with(1).argument}
 
-  it "docks a bike" do
+  it "releases working bikes" do
     bike = Bike.new
     subject.dock(bike)
     expect(subject.release_bike).to eq bike
+  end
+
+  it "doesnt release broken bikes" do
+    bike = Bike.new
+    broken_bike = bike.report_broken_bike
+    expect(subject.bikes).not_to include broken_bike
   end
 
   it 'has a default capacity' do
